@@ -22,11 +22,21 @@
             <li>Add your name to 'about-me.txt'</li>
             <li>Append a fun fact about you (on a newline) in 'about-me.txt'</li>
             <li>Print the contents of 'hello.txt'</li>
-            <li>Type the command</li>
+            <li>Type the command <code>$ curl -F data="@about-me.txt" http://workshop.makeopensource.org/​</code></li>
         </ol>
         <h1>Submissions</h1>
-        {% for submission in submissions %}
-        <p>{{ submission }}</p>
-        {% endfor %}
+        <div id="demo">
+        </div>
+        <script>
+            function loadResponse() {
+              const xhttp = new XMLHttpRequest();
+              xhttp.onload = function() {
+                document.getElementById("demo").innerHTML = this.responseText;
+              }
+              xhttp.open("GET", "/submissions");
+              xhttp.send();
+            }
+            setInterval(loadResponse, 1000);
+        </script>
     </body>
 </html>

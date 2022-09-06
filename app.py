@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import flask
 import time
 
 
@@ -7,9 +8,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def hello_world():
     if request.method == 'GET':
-        with open('submissions.txt', 'r') as file:
-            submissions = file.readlines()
-            return render_template('website.html', submissions=submissions)
+        return render_template('website.html')
 
     else:
         time.sleep(0.5)
@@ -17,12 +16,23 @@ def hello_world():
         data = data.stream.read().decode()
         parsed = data.strip().split('\n')
         if len(parsed) == 2:
-            submission = f'Name: {parsed[0]} Hobby: {parsed[1]}'
+            submission = f'<b>{flask.escape(parsed[0])}</b><br/>{flask.escape(parsed[1])}'
             with open('submissions.txt', 'a') as f:
                 f.write(submission + '\n')
             return '200: Successful submission!'
         else:
             return 'file not formatted correctly, please make sure the spacing is correct!'
+
+
+@app.route("/submissions")
+def get_submissions():
+    with open('submissions.txt', 'r') as file:
+        submissions = file.readlines()
+        retval = ""
+        for submission in submissions:
+            retval += f'<p>{submission}</p>'
+
+        return retval
 
 
 if __name__ == '__main__':
