@@ -1,5 +1,6 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, render_template
+import time
+
 
 app = Flask(__name__)
 
@@ -7,17 +8,16 @@ app = Flask(__name__)
 def hello_world():
     if request.method == 'GET':
         with open('submissions.txt', 'r') as file:
-            retval = ""
-            for item in file.readlines():
-                retval += f'<p>{item}</p>'
-            return retval
+            submissions = file.readlines()
+            return render_template('website.html', submissions=submissions)
 
     else:
+        time.sleep(0.5)
         data = request.files['data']
         data = data.stream.read().decode()
         parsed = data.strip().split('\n')
         if len(parsed) == 2:
-            submission = f'{parsed[0]} | {parsed[1]}'
+            submission = f'Name: {parsed[0]} Hobby: {parsed[1]}'
             with open('submissions.txt', 'a') as f:
                 f.write(submission + '\n')
             return '200: Successful submission!'
@@ -26,4 +26,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5003)

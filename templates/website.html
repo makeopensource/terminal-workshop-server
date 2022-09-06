@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <h1>Prerequisites</h1>
+        <ul>
+            <li>Attend "Introduction to the Unix Terminal"</li>
+            <li>Install <a href="https://hyper.is">hyper</a>. If you have 
+                an existing unix-based terminal, go ahead and use that.
+                If you don't know what that means, install Hyper.
+            </li>
+        </ul>
+        <h1>Instructions</h1>
+        <h3>Part 1</h3>
+        <ul>
+            <li>List your current directory</li>
+            <li>Print the location of your working directory</li>
+            <li>Create a new directory called 'hello'</li>
+            <li>Enter the 'hello' directory</li>
+        </ul>
+        <h3>Part 2</h3>
+        <ul>
+            <li>Create a file 'about-me.txt'</li>
+            <li>Add your name to 'about-me.txt'</li>
+            <li>Append a fun fact about you (on a newline) in 'about-me.txt'</li>
+            <li>Print the contents of 'hello.txt'</li>
+            <li>Type the command</li>
+        </ul>
+        <h1>Submissions</h1>
+        {% for submission in submissions %}
+        <p>{{ submission }}</p>
+        {% endfor %}
+    </body>
+</html>
