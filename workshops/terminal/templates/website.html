@@ -1,18 +1,19 @@
 <html>
     <body>
-	<h1 style="text-align: center;">MakeOpenSource Terminal Workshop</h1>
-	<h2>Resources</h2>
+        <a href="/">Back</a>
+        <h1 style="text-align: center;">MakeOpenSource Terminal Workshop</h1>
+        <h2>Resources</h2>
 	    <ul>
-		<li><a href="/using-the-unix-terminal.pdf">Presentation</a></li>
-                <li><a href="https://bicknrown.com/private/mos/unixcheatsheet.pdf">Unix Cheatsheet</a></li>
+            <li><a href="assets/using-the-unix-terminal.pdf">Presentation</a></li>
+            <li><a href="https://bicknrown.com/private/mos/unixcheatsheet.pdf">Unix Cheatsheet</a></li>
 		<li><a href="https://missing.csail.mit.edu/">[MIT] The Missing Semester of Your CS Education</a></li>
 	    </ul>
         <h2>Prerequisites</h2>
         <ul>
             <li>Attend "Introduction to the Unix Terminal"</li>
-            <li>Install <a href="https://hyper.is">hyper</a>. If you have 
-                an existing unix-based terminal, go ahead and use that.
-                If you don't know what that means, install Hyper.
+            <li>
+                If you are using a Windows computer, 
+                install <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>
             </li>
         </ul>
         <h2>Instructions</h2>
@@ -40,7 +41,7 @@
               xhttp.onload = function() {
                 document.getElementById("demo").innerHTML = this.responseText;
               }
-              xhttp.open("GET", "/submissions");
+              xhttp.open("GET", "/terminal/submissions");
               xhttp.send();
             }
             setInterval(loadResponse, 1000);
