@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_file
 import flask
 import time
 
@@ -22,6 +22,11 @@ def hello_world():
             return '200: Successful submission!'
         else:
             return 'file not formatted correctly, please make sure the spacing is correct!'
+
+
+@app.route("/using-the-unix-terminal.pdf")
+def get_presentation():
+    return send_file("Using-the-Unix-Terminal.pdf", download_name="Using the Unix Terminal.pdf")
 
 
 @app.route("/submissions")
