@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import os
+import sys
 
 from workshops.terminal.workshop import terminal
 
@@ -13,4 +14,4 @@ def home():
 app.register_blueprint(terminal, url_prefix="/terminal")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3001)
+    app.run(host='0.0.0.0', port=sys.argv[1])
