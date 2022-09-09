@@ -8,7 +8,7 @@ terminal = Blueprint('terminal', __name__, template_folder="templates",
 @terminal.route("/", methods=['GET', 'POST'])
 def terminal_workshop():
     if request.method == 'GET':
-        return render_template('website.html')
+        return render_template('terminal-workshop.html')
 
     else:
         data = request.files['data']
