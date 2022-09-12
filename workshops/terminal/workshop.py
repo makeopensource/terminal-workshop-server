@@ -5,10 +5,14 @@ import os
 terminal = Blueprint('terminal', __name__, template_folder="templates", 
         static_folder="static", static_url_path="assets")
 
+
+domain = 'https://workshop.makeopensource.org'
+
+
 @terminal.route("/", methods=['GET', 'POST'])
 def terminal_workshop():
     if request.method == 'GET':
-        return render_template('terminal-workshop.html')
+        return render_template('terminal-workshop.html', domain=domain)
 
     else:
         data = request.files['data']

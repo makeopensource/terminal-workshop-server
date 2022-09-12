@@ -1,6 +1,7 @@
 <html>
     <body>
         <h1 style="text-align: center;">MakeOpenSource Workshops</h1>
+        <h2>Workshops</h2>
         <ul>
             {% for workshop in workshops %}
             <li><a href="/{{ workshop }}">{{ workshop|title|replace("_", " ") }}</a></li>
