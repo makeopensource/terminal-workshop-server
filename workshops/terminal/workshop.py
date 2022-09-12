@@ -6,7 +6,7 @@ terminal = Blueprint('terminal', __name__, template_folder="templates",
         static_folder="static", static_url_path="assets")
 
 
-domain = 'https://workshop.makeopensource.org'
+domain = 'https://workshop.makeopensource.org/terminal'
 
 
 @terminal.route("/", methods=['GET', 'POST'])

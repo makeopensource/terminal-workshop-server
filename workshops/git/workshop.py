@@ -12,4 +12,3 @@ repo_api = 'https://api.github.com/repos/makeopensource/Classic-RPG/pulls'
 def git_workshop():
     if request.method == 'GET':
         return render_template('git-workshop.html', repo=github_repo, repo_api=repo_api)
-
