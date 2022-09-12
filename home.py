@@ -12,8 +12,8 @@ def home():
     if request.method == 'GET':
         return render_template('home.html', workshops=os.listdir("workshops"))
 
-app.register_blueprint(terminal, url_prefix="/terminal")
-app.register_blueprint(git, url_prefix="/git")
+app.register_blueprint(terminal, url_prefix="/terminal/")
+app.register_blueprint(git, url_prefix="/git/")
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:

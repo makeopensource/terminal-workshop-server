@@ -9,7 +9,7 @@ terminal = Blueprint('terminal', __name__, template_folder="templates",
 domain = 'https://workshop.makeopensource.org/terminal'
 
 
-@terminal.route("/", methods=['GET', 'POST'])
+@terminal.route("/", methods=['GET', 'POST'], strict_slashes=False)
 def terminal_workshop():
     if request.method == 'GET':
         return render_template('terminal-workshop.html', domain=domain)
