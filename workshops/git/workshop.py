@@ -8,7 +8,7 @@ git = Blueprint('git', __name__, template_folder="templates",
 github_repo = 'https://github.com/makeopensource/github-workshop-2022'
 repo_api = 'https://api.github.com/repos/makeopensource/Classic-RPG/pulls'
 
-@git.route("/")
+@git.route("/", strict_slashes=False)
 def git_workshop():
     if request.method == 'GET':
         return render_template('git-workshop.html', repo=github_repo, repo_api=repo_api)
